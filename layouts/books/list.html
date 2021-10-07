@@ -1,0 +1,56 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+{{ if .Params.IsCategory }}
+<section class="section pt-0">
+  <div class="container">
+    <div class="row">
+      {{ range .Site.Data.bookCategories }}
+      <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card border-0 text-center">
+          <a href="{{ .url }}">
+            <img src="{{ .image | absURL }}" alt="{{ .name }}" width="180">
+          </a>
+          <a href="{{ .url }}" class="h4">{{ .name }}</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ else }}
+{{ $category := .Params.category }}
+<section class="section pt-0">
+  <div class="container">
+    <div class="row">
+      {{ range .Site.Data.books }}
+      {{ if eq .category $category}}
+      <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card border-0 text-center">
+          <a href="{{ .url }}">
+            <img src="{{ .image | absURL }}" alt="{{ .title }}" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <a href="{{ .url }}" class="h4">{{ .title }}</a>
+            <div class="mb-4">
+              {{ if .priceOld }}
+              <s>{{ site.Params.currencySymbol }}{{ .priceOld }}</s>
+              {{ end }}
+              <span class="lead text-primary">{{ site.Params.currencySymbol }}{{ .price }}</span>
+            </div>
+            <button class="snipcart-add-item btn btn-sm btn-outline-primary" data-item-id="{{ .id }}"
+              data-item-name="{{ .title }}"  data-item-image="{{ .image | absURL }}"
+             data-item-price="{{ .price }}" data-item-url="{{ .url }}" data-item-description="{{ .shortDescription }}">
+              Στο καλάθι
+            </button>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

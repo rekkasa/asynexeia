@@ -1,0 +1,26 @@
+[
+	{
+		"id": "1",
+		"name": "21-ος αιώνας",
+		"image": "/images/book-categories/1.jpg",
+		"url": "/books/21-ος-αιώνας"
+	},
+	{
+		"id": "2",
+		"name": "εξεγέρσεις, κινήματα, επαναστάσεις",
+		"image": "/images/book-categories/2.jpg",
+		"url": "/books/κινήματα-εξεγέρσεις-επαναστάσεις"
+	},
+	{
+		"id": "3",
+		"name": "τέχνες και κινήματα",
+		"image": "/images/book-categories/3.jpg",
+		"url": "/books/τέχνες-και-κινήματα"
+	},
+	{
+		"id": "4",
+		"name": "λογοτεχνία",
+		"image": "/images/book-categories/4.jpg",
+		"url": "/books/λογοτεχνία"
+	}
+]

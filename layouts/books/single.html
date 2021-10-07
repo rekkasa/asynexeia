@@ -1,0 +1,69 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+{{ $books := .Site.Data.books }}
+{{ $bookId := .Params.Id }}
+  <section class="section pt-0">
+    <div class="container">
+      <div class="row">
+        {{ range $books }}
+        {{ if eq .id $bookId }}
+        <div class="col-lg-5 mb-4 mb-lg-0">
+          <!-- product image slider -->
+            <div data-image="{{ .image | absURL }}">
+              <img class="img-fluid w-80" src="{{ .image | absURL }}" alt="product-img">
+            </div>
+        </div>
+        <div class="col-lg-5 offset-lg-1">
+          <h4 class="font-weight-medium">{{ .title }}</h4>
+          <h5>{{ delimit .author ", "  }}</h5>
+          <div class="mb-4">
+            {{ if .priceOld }}
+            <s>{{ site.Params.currencySymbol }}{{ .priceOld }}</s>
+            {{ end }}
+            <span class="lead text-primary font-weight-medium">{{ site.Params.currencySymbol }}{{ .price }}</span>
+          </div>
+          <h5>Σύντομα</h5>
+          <p>{{ .shortDescription | markdownify }}</p>
+          <button class="snipcart-add-item btn btn-primary" data-item-id="{{ .id }}"
+            data-item-name="{{ .title }}" data-item-image="{{ .image | absURL }}"
+            data-item-price="{{ .price }}" data-item-url="{{ .url }}" data-item-description="{{ .shortDescription }}">
+            Στο καλάθι
+          </button>
+        </div>
+        {{ end }}
+        {{ end }}
+        <div class="col-12 mt-5">
+          <ul class="nav nav-tabs border-bottom-0" id="myTab" role="tablist">
+            <li class="nav-item mr-3">
+              <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab"
+                aria-controls="description" aria-selected="true">Περιγραφή</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                aria-selected="false">Περισσότερα</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+              <div class="content">{{ .Content }}</div>
+            </div>
+            {{ range $books }}
+            {{ if eq .id $bookId }}
+            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+              <ul>
+                <li>Σελίδες: {{ .pages }} </li>
+                <li>Σχήμα: {{ delimit .size " x "}} (cm)</li>
+                <li>Έτος έκδοσης: {{ .year }} </li>
+                <li>ISBN: {{ .isbn }} </li>
+              </ul>
+            </div>
+            {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{{ end }}

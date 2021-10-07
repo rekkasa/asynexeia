@@ -1,0 +1,109 @@
+######################## default configuration ####################
+baseURL = "https://examplesite.com"
+languageCode = "gr"
+title = "Εκδόσεις Α/συνέχεια"
+theme = "hargo-hugo"
+summaryLength = "20"
+paginate = 10
+disqusShortname = ""
+
+############################# Plugins ##############################
+[params.plugins]
+
+  # CSS Plugins
+  [[params.plugins.css]]
+  link = "plugins/bootstrap/bootstrap.min.css"
+  [[params.plugins.css]]
+  link = "plugins/slick/slick.css"
+  [[params.plugins.css]]
+  link = "plugins/themify-icons/themify-icons.css"
+
+  # JS Plugins
+  [[params.plugins.js]]
+  link = "plugins/jQuery/jquery.min.js"
+  [[params.plugins.js]]
+  link = "plugins/bootstrap/bootstrap.min.js"
+  [[params.plugins.js]]
+  link = "plugins/slick/slick.min.js"
+  [[params.plugins.js]]
+  link = "plugins/google-map/gmap.js"
+
+
+############################## navigation ###############################
+[menu]
+
+  [[menu.main]]
+  name = "Βιβλία"
+  URL = "books"
+  weight = 1
+
+  [[menu.main]]
+  name = "Νέα"
+  URL = "news"
+  weight = 2
+
+
+  [[menu.main]]
+  name = "Επικοινωνία"
+  URL = "contact"
+  weight = 3
+#################### default parameters ################################
+[params]
+logo = "/images/logo.jpeg"
+home = "Αρχική"
+# Meta data
+description = "This is meta description"
+author = "Αλεξάρας"
+# google map
+gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
+mapLatitude = "51.5223477"
+mapLongitude = "-0.1622023"
+mapMarker = "images/marker.png"
+# Google Analitycs
+googleAnalitycsID = "" # Your ID
+# Contact Information
+mobile = "210 3845870"
+email = "info@asynechia.gr"
+location = "Ρεθύμνου 11 & Ιουλιανού, Αθήνα 10682"
+# copyright
+copyright = "| Copyright &copy; 2019 [Gethugothemes](https://gethugothemes.com) All Rights Reserved |"
+# Snipcart Credentials
+snipcartApiKey = "YWNiZTA5MGQtZWZhYS00NDA1LWJmMDUtYmI2ZjU5NDBmMDllNjM3NjkyMjQ5NDg5NTgwNzQx"
+currencySymbol = "€"
+
+  # Preloader
+  [params.preloader]
+  enable = false
+  preloader = "" # use .png , .svg or .gif format
+
+  # Product Rating
+  # it works with https://rating-widget.com/ , you will get the ID and publicKey after creating your account there.
+  [params.rating]
+  enable = false
+  websiteID = "444334"
+  publicKey = "811cf0927332bf51f2e12f84608594ac"
+
+  # Social Site
+  [[params.social]]
+  icon = "ti-facebook"
+  link = "#"
+
+  [[params.social]]
+  icon = "ti-twitter-alt"
+  link = "#"
+
+  [[params.social]]
+  icon = "ti-youtube"
+  link = "#"
+
+  [[params.social]]
+  icon = "ti-instagram"
+  link = "#"
+
+  [[params.social]]
+  icon = "ti-pinterest"
+  link = "#"
+
+  # Contact Form
+  [params.contact]
+  formAction = "#" # contact form works with formspree.io
