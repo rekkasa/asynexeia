@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = ""
+baseURL = "https://asynexeia.netlify.app/"
 languageCode = "gr"
 title = "Εκδόσεις Α/συνέχεια"
 theme = "hargo-hugo"
