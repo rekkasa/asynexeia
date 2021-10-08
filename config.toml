@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://examplesite.com"
+baseURL = ""
 languageCode = "gr"
 title = "Εκδόσεις Α/συνέχεια"
 theme = "hargo-hugo"
